@@ -1,0 +1,20 @@
+# Ключи и настройки
+.env
+
+# Виртуальное окружение
+.venv/
+__pycache__/
+*.py[cod]
+
+# Данные (не заливаем огромные Excel и JSONL)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Модели (весят слишком много для GitHub)
+models/*
+!models/.gitkeep
+
+# PyCharm
+.idea/

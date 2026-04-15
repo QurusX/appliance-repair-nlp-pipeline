@@ -1,0 +1,11 @@
+google-genai
+pandas
+openpyxl
+python-dotenv
+pydantic
+torch
+torchvision
+transformers
+datasets
+scikit-learn
+tqdm
