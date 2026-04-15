@@ -121,5 +121,5 @@ python main.py --mode run --input data/raw/new_data.xlsx --output data/processed
 ---
 
 ### 🤝 Контакты
-Разработано: [Николай Алымов] — [t.me/nickalymov]
+Telegram: [@nickalymov](https://t.me/nickalymov)
 Буду рад сотрудничеству в области автоматизации данных и внедрения ИИ-решений!
