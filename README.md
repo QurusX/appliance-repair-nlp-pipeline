@@ -21,22 +21,22 @@
 *   **Анализ решений:** Определение наличия конкретных шагов по устранению неисправности в тексте.
 *   **Высокая производительность:** Обработка **13,000+ записей менее чем за 4 минуты** на одной видеокарте (RTX 3060) благодаря пакетной обработке (Batching).
 
-## 📊 Примеры работы (Real-world Examples)
+## 📊 Примеры обработки данных (Pipeline Examples)
 
-Ниже приведены примеры того, как система обрабатывает реальные запросы пользователей, превращая неструктурированный текст в точные технические данные.
+Система эффективно обрабатывает связки «Вопрос-Ответ», извлекая суть даже из неструктурированных и длинных текстов.
 
-| Исходный вопрос (User Question) | Сгенерированная категория (AI Category) | Извлеченный артикул (Part Number) | Ремонт / Решение |
+| Вопрос пользователя (Question) | Ответ мастера (Answer) | Категория (AI Category) | Извлеченные Part Numbers |
 | :--- | :--- | :--- | :--- |
-| "I need to buy an upper rack?" | **Part Identification** | `PS12348079` | ✅ Да / ✅ Да |
-| "Can’t get the drum off to put the belt on what else can I do?" | **belt replacement** | - | ✅ Да / ✅ Да |
-| "Washer bang and knocks while in spin cycle" | **Spin cycle bang and knocks** | `PS11751118` | ✅ Да / ✅ Да |
-| "2 questions about fabric softener dispenser. It does not drain..." | **dispenser not draining** | - | ✅ Да / ✅ Да |
-| "My GE refrigerator model GNE27JYMFS. What is the width?" | **Non-repair context** | - | ❌ Нет / ❌ Нет |
+| "I need to buy an upper rack?" | "Hi Tom... The Upper Rack is listed as PartSelect #: **PS12348079**. Good luck with the repair!" | **Part Identification** | `PS12348079` |
+| "Can’t get the drum off to put the belt on what else can I do?" | "Hello Benita... To remove the drum, you will use a putty knife and push the spring clips... Disconnect the belt then lift on the drum..." | **belt replacement** | - |
+| "Washer bang and knocks while in spin cycle" | "Hi Michael... It appears that your washer may have a damaged suspension spring, part number **PS11751118**..." | **Spin cycle bang and knocks** | `PS11751118` |
+| "2 questions about fabric softener dispenser. It does not drain all the way..." | "Hi Laurie... For a deep clean, soak the dispenser parts in a solution of warm, soapy water for 15–30 minutes..." | **dispenser not draining** | - |
+| "My GE refrigerator model GNE27JYMFS. Can someone tell me the width?" | "The GE GNE27JYMFS refrigerator is approximately 35.75 inches wide... check the product page for more info." | **Non-repair context** | - |
 
-### Как это работает:
-1. **Классификатор** понимает, что вопрос про ширину холодильника — это не ремонт, и помечает его как `Non-repair context`.
-2. **Генератор (T5)** анализирует длинные описания (про барабан или диспенсер) и формулирует краткую техническую суть проблемы.
-3. **Экстрактор** мгновенно вытягивает артикулы запчастей (PartSelect numbers), даже если они запрятаны глубоко в тексте ответа.
+### Что здесь происходит:
+1.  **Смысловой анализ:** В примере с барабаном (drum) ИИ проанализировал длинную инструкцию и понял, что речь идет о **замене ремня (belt replacement)**.
+2.  **Точное извлечение:** Из примера с верхней корзиной (upper rack) модель мгновенно выделила технический артикул `PS12348079`.
+3.  **Фильтрация шума:** Вопрос про габариты холодильника был автоматически классифицирован как **не связанный с ремонтом**, что позволяет очистить базу данных от нецелевого контента.
 
 ## 🛠 Технологический стек
 
